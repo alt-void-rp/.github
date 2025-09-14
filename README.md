@@ -10,11 +10,11 @@ A scalable, modular architecture for **Alt:V (FiveM alternative)** servers, sepa
 
 ```mermaid
 graph TD
-    A[Alt:V Core<br>(Game Server)] --> B[Resource: Bank]
+    A[Alt:V Core\\(Game Server\)] --> B[Resource: Bank]
     A --> C[Resource: Taxi]
     A --> D[Resource: Jobs]
 
-    E[Website • Launcher • Discord Bot] --> F[API Gateway<br>(Nginx/Traefik)]
+    E[Website • Launcher • Discord Bot] --> F[API Gateway\\(Nginx/Traefik\)]
     F --> G[Bank Service]
     F --> H[Taxi Service]
     F --> I[Donate Service]
@@ -24,7 +24,7 @@ graph TD
     C --> F
     D --> F
 
-    G --> K[Database<br>(PostgreSQL + Redis)]
+    G --> K[Database\\(PostgreSQL + Redis\)]
     H --> K
     I --> K
     J --> K
