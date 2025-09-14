@@ -1,20 +1,30 @@
+# 🚀 Alt:V Multi-Service Server Architecture
+
+> **Real-time game server with decoupled microservices, API gateway, and external web integrations**
+
+A scalable, modular architecture for **Alt:V (FiveM alternative)** servers, separating core gameplay logic from external services via a secure API gateway. Designed for high performance, maintainability, and easy expansion.
+
+---
+
+## 🌐 Architecture Overview
+
 ```mermaid
 graph TD
-    A[Alt:V Core<br>(Real-time)] --> B[Resource: Bank]
-    B --> C[Resource: Taxi]
-    C --> D[Resource: Jobs]
+    A[Alt:V Core<br>(Game Server)] --> B[Resource: Bank]
+    A --> C[Resource: Taxi]
+    A --> D[Resource: Jobs]
 
-    E[Website / Launcher / Discord Bot] --> F[API Gateway<br>(Nginx/Traefik)]
+    E[Website • Launcher • Discord Bot] --> F[API Gateway<br>(Nginx/Traefik)]
     F --> G[Bank Service]
     F --> H[Taxi Service]
     F --> I[Donate Service]
     F --> J[Auth Service]
 
-    G --> K[Database<br>(PostgreSQL/Redis)]
-    H --> K
-    I --> K
-    J --> K
-
     B --> F
     C --> F
     D --> F
+
+    G --> K[Database<br>(PostgreSQL + Redis)]
+    H --> K
+    I --> K
+    J --> K
