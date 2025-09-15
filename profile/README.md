@@ -70,88 +70,98 @@
 
 ## 📁 Структура проекта
 altv-server-project/
-server/
-  core/
-    server.js
-  resources/
-    bank/
-      client.js
-      server.js
-    taxi/
-      client.js
-      server.js
-    jobs/
-      client.js
-      server.js
-    stats/
-      client.js
-      server.js
-api/
-  auth-service/
-    index.js
-    routes/auth.js
-    controllers/authController.js
-    models/User.js
-    utils/jwt.js
-  bank-service/
-    index.js
-    routes/bank.js
-    controllers/bankController.js
-  taxi-service/
-    index.js
-    routes/taxi.js
-    controllers/taxiController.js
-  donate-service/
-    index.js
-    routes/donate.js
-    queue-consumer.js
-    webhooks/stripe.js
-  register-service/
-    index.js
-    routes/register.js
-    steamAuth.js
-  stats-service/
-    index.js
-    routes/stats.js
-    collector.js
-  notification-service/
-    index.js
-    discordNotifier.js
-  .env.example
-  package.json
-  Dockerfile
-gateway/
-  nginx.conf
-database/
-  schema.sql
-  migrations/
-    001_initial_tables.sql
-queues/
-  setup.js
-monitoring/
-  prometheus/prometheus.yml
-  grafana/dashboards/altv-server.json
-website/
-  index.html
-  app.js
-  styles.css
-  assets/
-    logo.png
-    favicon.ico
-docker/
-  altv/Dockerfile
-  api/Dockerfile
-  gateway/Dockerfile
-docker-compose.yml
-scripts/
-  deploy.sh
-  start-all.sh
-  backup-db.sh
-  restart-services.sh
-.env.example
-.gitignore
-README.md
-LICENSE
+- ├── server/
+- │   ├── core/
+- │   │   └── server.js
+- │   └── resources/
+- │       ├── bank/
+- │       │   ├── client.js
+- │       │   └── server.js
+- │       ├── taxi/
+- │       │   ├── client.js
+- │       │   └── server.js
+- │       ├── jobs/
+- │       │   ├── client.js
+- │       │   └── server.js
+- │       └── stats/
+- │           ├── client.js
+- │           └── server.js
+- │
+- ├── api/
+- │   ├── auth-service/
+- │   │   ├── index.js
+- │   │   ├── routes/auth.js
+- │   │   ├── controllers/authController.js
+- │   │   ├── models/User.js
+- │   │   └── utils/jwt.js
+- │   ├── bank-service/
+- │   │   ├── index.js
+- │   │   ├── routes/bank.js
+- │   │   └── controllers/bankController.js
+- │   ├── taxi-service/
+- │   │   ├── index.js
+- │   │   ├── routes/taxi.js
+- │   │   └── controllers/taxiController.js
+- │   ├── donate-service/
+- │   │   ├── index.js
+- │   │   ├── routes/donate.js
+- │   │   ├── queue-consumer.js
+- │   │   └── webhooks/stripe.js
+- │   ├── register-service/
+- │   │   ├── index.js
+- │   │   ├── routes/register.js
+- │   │   └── steamAuth.js
+- │   ├── stats-service/
+- │   │   ├── index.js
+- │   │   ├── routes/stats.js
+- │   │   └── collector.js
+- │   ├── notification-service/
+- │   │   ├── index.js
+- │   │   └── discordNotifier.js
+- │   ├── .env.example
+- │   ├── package.json
+- │   └── Dockerfile
+- │
+- ├── gateway/
+- │   └── nginx.conf
+- │
+- ├── database/
+- │   ├── schema.sql
+- │   └── migrations/
+- │       └── 001_initial_tables.sql
+- │
+- ├── queues/
+- │   └── setup.js
+- │
+- ├── monitoring/
+- │   ├── prometheus/prometheus.yml
+- │   └── grafana/dashboards/altv-server.json
+- │
+- ├── website/
+- │   ├── index.html
+- │   ├── app.js
+- │   ├── styles.css
+- │   └── assets/
+- │       ├── logo.png
+- │       └── favicon.ico
+- │
+- ├── docker/
+- │   ├── altv/Dockerfile
+- │   ├── api/Dockerfile
+- │   └── gateway/Dockerfile
+- │
+- ├── docker-compose.yml
+- │
+- ├── scripts/
+- │   ├── deploy.sh
+- │   ├── start-all.sh
+- │   ├── backup-db.sh
+- │   └── restart-services.sh
+- │
+- ├── .env.example
+- ├── .gitignore
+- ├── README.md
+- └── LICENSE
 
 ---
 
