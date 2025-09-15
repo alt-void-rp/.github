@@ -1,30 +1,30 @@
-# 🚀 Alt:V Multi-Service Server Architecture
+# 🚀 Архитектура сервера Alt:V с микросервисами
 
-> **Real-time game server with decoupled microservices, API gateway, and external web integrations**
+> **Масштабируемая архитектура для игрового сервера Alt:V с разделением логики на микросервисы и API-шлюз**
 
-A scalable, modular architecture for **Alt:V (FiveM alternative)** servers, separating core gameplay logic from external services via a secure API gateway. Designed for high performance, maintainability, and easy expansion.
+Проект представляет собой модульную и масштабируемую архитектуру для сервера **Alt:V** (альтернатива FiveM), где игровая логика отделена от внешних сервисов через защищённый API-шлюз. Подходит для серверов с банковской системой, такси, трудоустройством, донатами и интеграцией с веб-сайтом и Discord.
 
 ---
 
-## 🌐 Architecture Overview
+## 🌐 Архитектура системы
 
 ```mermaid
 graph TD
-    A[Alt:V Core\\n(Game Server)] --> B[Resource: Bank]
-    A --> C[Resource: Taxi]
-    A --> D[Resource: Jobs]
+    A[Alt:V Core\\n(Игровой сервер)] --> B[Ресурс: Банк]
+    A --> C[Ресурс: Такси]
+    A --> D[Ресурс: Работы]
 
-    E[Website • Launcher • Discord Bot] --> F[API Gateway\\n(Nginx/Traefik)]
-    F --> G[Bank Service]
-    F --> H[Taxi Service]
-    F --> I[Donate Service]
-    F --> J[Auth Service]
+    E[Веб-сайт • Ланчер • Discord-бот] --> F[API-шлюз\\n(Nginx/Traefik)]
+    F --> G[Сервис банка]
+    F --> H[Сервис такси]
+    F --> I[Сервис донатов]
+    F --> J[Сервис авторизации]
 
     B --> F
     C --> F
     D --> F
 
-    G --> K[Database\\n(PostgreSQL + Redis)]
+    G --> K[База данных\\n(PostgreSQL + Redis)]
     H --> K
     I --> K
     J --> K
