@@ -70,121 +70,88 @@
 
 ## 📁 Структура проекта
 altv-server-project/
-├── server/                          # 🔧 Alt:V игровой сервер (не трогать после настройки)
-│   ├── core/
-│   │   └── server.js                # Главный скрипт Alt:V (запуск сервера)
-│   └── resources/
-│       ├── bank/                    # 🏦 Ресурс банка (взаимодействует с /api/bank)
-│       │   ├── client.js            # Клиентская часть (для игрока)
-│       │   └── server.js            # Серверная часть (на Alt:V)
-│       ├── taxi/                    # 🚖 Ресурс такси
-│       │   ├── client.js
-│       │   └── server.js
-│       ├── jobs/                    # 💼 Ресурс работы/заданий
-│       │   ├── client.js
-│       │   └── server.js
-│       └── stats/                   # 📊 Ресурс сбора статистики
-│           ├── client.js
-│           └── server.js
-│
-├── api/                             # ⚙️ Микросервисы (Node.js + Express)
-│   ├── auth-service/                # 🔐 Авторизация (JWT)
-│   │   ├── index.js                 # Точка входа
-│   │   ├── routes/
-│   │   │   └── auth.js
-│   │   ├── controllers/
-│   │   │   └── authController.js
-│   │   ├── models/
-│   │   │   └── User.js
-│   │   └── utils/
-│   │       └── jwt.js
-│   │
-│   ├── bank-service/                # 🏦 Банковский сервис
-│   │   ├── index.js
-│   │   ├── routes/
-│   │   │   └── bank.js
-│   │   └── controllers/
-│   │       └── bankController.js
-│   │
-│   ├── taxi-service/                # 🚖 Такси-сервис
-│   │   ├── index.js
-│   │   ├── routes/
-│   │   │   └── taxi.js
-│   │   └── controllers/
-│   │       └── taxiController.js
-│   │
-│   ├── donate-service/              # 💸 Донаты (Stripe/PayPal)
-│   │   ├── index.js
-│   │   ├── routes/
-│   │   │   └── donate.js
-│   │   ├── queue-consumer.js        # Обработчик RabbitMQ
-│   │   └── webhooks/
-│   │       └── stripe.js
-│   │
-│   ├── register-service/            # 📝 Регистрация через сайт
-│   │   ├── index.js
-│   │   ├── routes/
-│   │   │   └── register.js
-│   │   └── steamAuth.js             # Привязка Steam-аккаунта
-│   │
-│   ├── stats-service/               # 📈 Сбор статистики
-│   │   ├── index.js
-│   │   ├── routes/
-│   │   │   └── stats.js
-│   │   └── collector.js             # Фоновый сбор данных из Alt:V
-│   │
-│   ├── notification-service/        # 📬 Уведомления (Discord/Telegram)
-│   │   ├── index.js
-│   │   └── discordNotifier.js
-│   │
-│   ├── .env.example                 # Шаблон переменных окружения (обязательно!)
-│   ├── package.json                 # Общие зависимости для всех сервисов
-│   └── Dockerfile                   # Общий Dockerfile для микросервисов (если используется один образ)
-│
-├── gateway/                         # 🌐 API Gateway (Nginx/Traefik)
-│   └── nginx.conf                   # Конфиг Nginx: маршруты, SSL, rate limits, CORS
-│
-├── database/                        # 🗃️ База данных
-│   ├── schema.sql                   # SQL-скрипты создания таблиц (PostgreSQL)
-│   └── migrations/                  # По желанию — миграции (если используете Knex или Sequelize)
-│       └── 001_initial_tables.sql
-│
-├── queues/                          # 📦 RabbitMQ
-│   └── setup.js                     # Настройка очередей и обменников (RabbitMQ)
-│
-├── monitoring/                      # 📊 Мониторинг
-│   ├── prometheus/
-│   │   └── prometheus.yml           # Конфиг Prometheus для сбора метрик
-│   └── grafana/
-│       └── dashboards/
-│           └── altv-server.json     # Экспорт дашборда Grafana (можно импортировать)
-│
-├── website/                         # 🌐 Веб-сайт / ланчер
-│   ├── index.html                   # Главная страница
-│   ├── app.js                       # Логика сайта (JS)
-│   ├── styles.css                   # Стили
-│   └── assets/                      # Изображения, иконки
-│       ├── logo.png
-│       └── favicon.ico
-│
-├── docker/                          # 🐳 Docker-образы
-│   ├── altv/Dockerfile              # Образ Alt:V (если запускаете через Docker)
-│   ├── api/Dockerfile               # Образ для микросервисов (Node.js)
-│   └── gateway/Dockerfile           # Образ Nginx
-│
-├── docker-compose.yml               # 🚀 Главный файл запуска всего стека
-│                                    # (Alt:V, API, DB, Redis, RabbitMQ, Nginx, Grafana, Prometheus)
-│
-├── scripts/                         # 🛠️ Полезные скрипты
-│   ├── deploy.sh                    # Запуск всего стека (docker-compose up --build)
-│   ├── start-all.sh                 # Локальный запуск (без Docker, для разработки)
-│   ├── backup-db.sh                 # Бэкап PostgreSQL
-│   └── restart-services.sh          # Перезапуск только API-сервисов
-│
-├── .env.example                     # 🔑 Шаблон переменных окружения (обязательно!)
-├── .gitignore                       # 🔒 Что игнорировать (node_modules, .env, logs)
-├── README.md                        # 📄 Главный файл проекта
-└── LICENSE                          # 📜 Лицензия (MIT)
+server/
+  core/
+    server.js
+  resources/
+    bank/
+      client.js
+      server.js
+    taxi/
+      client.js
+      server.js
+    jobs/
+      client.js
+      server.js
+    stats/
+      client.js
+      server.js
+api/
+  auth-service/
+    index.js
+    routes/auth.js
+    controllers/authController.js
+    models/User.js
+    utils/jwt.js
+  bank-service/
+    index.js
+    routes/bank.js
+    controllers/bankController.js
+  taxi-service/
+    index.js
+    routes/taxi.js
+    controllers/taxiController.js
+  donate-service/
+    index.js
+    routes/donate.js
+    queue-consumer.js
+    webhooks/stripe.js
+  register-service/
+    index.js
+    routes/register.js
+    steamAuth.js
+  stats-service/
+    index.js
+    routes/stats.js
+    collector.js
+  notification-service/
+    index.js
+    discordNotifier.js
+  .env.example
+  package.json
+  Dockerfile
+gateway/
+  nginx.conf
+database/
+  schema.sql
+  migrations/
+    001_initial_tables.sql
+queues/
+  setup.js
+monitoring/
+  prometheus/prometheus.yml
+  grafana/dashboards/altv-server.json
+website/
+  index.html
+  app.js
+  styles.css
+  assets/
+    logo.png
+    favicon.ico
+docker/
+  altv/Dockerfile
+  api/Dockerfile
+  gateway/Dockerfile
+docker-compose.yml
+scripts/
+  deploy.sh
+  start-all.sh
+  backup-db.sh
+  restart-services.sh
+.env.example
+.gitignore
+README.md
+LICENSE
 
 ---
 
